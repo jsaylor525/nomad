@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+   </head>
+   <nav>
+      <div class="container">
+         <div class="row">         
+            <div class="col-lg-3 col-sm-12">
+               <a href="index.html">Home</a>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+               <a href="login.html">Login</a>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+               <a href="logout.html">Logout</a>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+               <a href="account.html">Account</a>
+            </div>
+         </div>
+      </div>
+   </nav>
+   <body>
+      <div class="container">
+         {% block body %}
+         {% endblock %}
+      </div>
+   </body>
+</html>
