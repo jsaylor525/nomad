@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Workouts
+{% endblock %}
+
+{% block body %}
+
+   <div class="workout-container">
+      
+      <h1>Workouts</h1>
+      {% if False %}
+      <ul>
+         {% for workout in workouts %}
+         <li>{{ workout.name }} preformed on {{ workout.date }}</li>            
+         <!-- <ul>  
+            {% for movement in workout.movements %}
+            <li>{{ movement.name }}</li>
+            {% empty %}
+            <li>Sorry, no movements in this list.</li>
+            {% endfor %}
+         </ul> -->
+         {% empty %}
+         <li>Sorry, no workouts in this list.</li>
+         {% endfor %}
+      </ul>      
+      {% else %}
+         <li>Workouts page coming soon...</li>
+      {% endif %}
+
+   </div>
+
+{% endblock %}

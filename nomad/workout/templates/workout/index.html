@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Movements
+{% endblock %}
+
+{% block body %}
+
+   <div class="movement-container">
+      
+      <h1>Movements</h1>
+      <ul>
+         {% for movement in movements %}
+         <li>{{ movement.name }} - {{ movement.category }}</li>
+         {% empty %}
+         <li>Sorry, no movements in this list.</li>
+         {% endfor %}
+      </ul>
+
+   </div>
+
+{% endblock %}

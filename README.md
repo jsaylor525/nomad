@@ -12,3 +12,31 @@
 | /nomad/models.py | This is where you define the models of your application. This may be split into several modules in the same way as views.py. |
 | /nomad/static/ | This directory contains the public CSS, JavaScript, images and other files that you want to make public via your app. It is accessible from nomad.com/static/ by default. |
 | /nomad/templates/ | This is where you’ll put the Jinja2 templates for your app. |
+
+## Setup
+
+Django Setups for initial creation.
+
+1. Create the project.
+   ```
+   django-admin startproject nomad
+   ```
+2. change into the created project directory and test that the project was created successfully.
+   ```
+   cd .\nomad\
+   python manage.py runserver
+   ```
+3. Create a application.
+   ```
+   python .\manage.py startapp clock
+   ```
+4. Setup Clock For initial integration.
+   1. Add a default view in clock/view.py
+   2. Create a file clock/url.py and add the url definition.
+   3. Connect the nomad/url.py with the clock/url.py
+      1. Also give the base "" a page to load
+5. Check the server again, fix any issues.
+6. Create database.
+   ```
+   python manage.py migrate
+   ```
