@@ -1,12 +1,15 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
+from .forms import (
+   WorkoutBuilderForm,
+)
 from .models import (
    Movement,
    Workout,
 )
 from django.views.generic import (
-   ListView,
+   ListView, FormView
 )
 
 class WorkoutListView(ListView):
@@ -30,6 +33,11 @@ def workoutsView(request):
       "workouts":  Workout.objects.all(),  
    }
    return render(request, "workout/workouts.html", context)
+
+class WorkoutBuilderFormView(FormView):
+   template_name = "workout/workout_builder.html"
+   form_class = WorkoutBuilderForm
+   success_url = '/thanks/'
 
 def workoutBuilderView(request):
    context = {
