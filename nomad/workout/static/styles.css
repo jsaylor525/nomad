@@ -1,16 +1,7 @@
-* {
-   background: #000000;
-   color: #ffffff;
+#use-vest {
+   display: flex;
+   flex-direction: row;
+   align-self: flex-end;
+   justify-content: flex-start;
+   width:100%;
 }
-
-.nav-container {
-   background: red;
-}
-
-.movement-container ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   background-color: #00ffff
-}
-

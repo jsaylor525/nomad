@@ -20,14 +20,17 @@
          </tr>
       </thead>
       <tbody>
-         {% for movement in movements %} 
+         {% for movement in object_list %} 
             <tr class="table-active">
                <th scope="row"> {{ movement.id }} </th>
                <td scope="row"> {{ movement.name }} </th>
                <td> {{ movement.category }} </td>
-             </tr>
+            </tr>
          {% empty %}
-         <li>Sorry, no movements in this list.</li>
+            <tr class="table-active text-center text-danger">
+               <!-- Make this span all columns -->
+               <th scope="row" colspan="10">Sorry, no movements in this list.</th>
+            </tr>
          {% endfor %}
       </tbody>
    </table>

@@ -48,6 +48,9 @@ class Movement(models.Model):
       default=1.0,
    )
 
+   # class Meta:
+   #    order_with_respect_to = 'category'
+
    def __str__(self):
       return f"{self.name}"
 
@@ -100,5 +103,16 @@ class Workout(models.Model):
       to = Movement,
       verbose_name = "list of movements",
    )
+
+   class Meta:
+      ordering = ['-name', '-date', '-description',]
+
+   def get_absolute_url(self):
+      return reverse("model-detail-view", kwargs={"pk": self.pk})
+   
+
+   def __str__(self):
+       return self.name
+   
 
 
