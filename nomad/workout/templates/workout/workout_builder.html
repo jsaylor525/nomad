@@ -36,7 +36,9 @@
       </div>
 
       <div class="card border-primary mb-3">
-         <div class="card-header">Workout Section</div>
+         <div class="card-header">Workout Section (Drag to reorder)</div>
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+
          <div class="card-body">
             
             <form class="form-inline-group my-2 my-lg-0">
@@ -45,13 +47,13 @@
                      <span class="ui-icon ui-icon-arrowthick-2-n-s">
                         <div class="row justify-content-left">
                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-1">
-                              <input class="form-control justify-content-lg-left" type="text" placeholder="Search for Movement">
+                              <input class="movement-name form-control justify-content-lg-left" value ="name" type="text" placeholder="Search for Movement">
                            </div>
                            <div class="col-lg-2 col-md-2 col-sm-2">
-                              <input class="form-control justify-content-left" type="number" placeholder="Weight">
+                              <input class="form-control justify-content-left" value="weight" type="number" placeholder="Weight">
                            </div>
                            <div class="col-lg-2 col-md-2 col-sm-2">
-                              <input class="form-control" type="number" placeholder="Reps">
+                              <input class="form-control" value="reps" type="number" placeholder="Reps">
                            </div>   
                            <div class="col-lg-2 col-md-2 col-sm-2">
                               <button type="button" class="btn btn-danger btm-sm remove-movement" onclick="removeMovement(this)">
@@ -75,7 +77,9 @@
             </form>
          </div>
          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will start a new section in the same workout.">Then</button>
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will start a new section in the same workout." id="add-new-workout-section" onclick="addNewWorkoutSection()">
+               Then
+            </button>
             <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will repeat the current section">Repeat</button>
             <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will add a movement(s) at a specific interval">Interrupt</button>
             <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will save your workout as is">Done</button>
