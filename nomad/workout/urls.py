@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+
 '''
 arg1: is the extenstion from the base url, ex. www.examplewebsite.com/<arg1>
 arg2: is the function that will be called to render the page.

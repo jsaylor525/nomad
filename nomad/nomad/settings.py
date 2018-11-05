@@ -119,3 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+from django.conf import settings
+STATIC_ROOT="../workout/static"
+
+STATICFILES_DIRS = [
+    
+    "workout/static/css",
+    "workout/static/images",
+    "workout/static/js",
+]

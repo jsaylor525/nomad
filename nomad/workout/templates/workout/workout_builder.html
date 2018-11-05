@@ -43,15 +43,25 @@
             
             <form class="form-inline-group my-2 my-lg-0">
                <ol id="sortable" class="sortable container movement-list">
-                  <li id="movementEntry" class="ui-state-default movement-elem container form-group">
+                  <li id="movementEntry0" class="ui-state-default movement-elem container form-group">
                      <span class="ui-icon ui-icon-arrowthick-2-n-s">
                         <div class="row justify-content-left">
                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-1">
-                              <input class="movement-name form-control justify-content-lg-left" value ="name" type="text" placeholder="Search for Movement">
+                              <input type="text" placeholder="Search for Movement" list='movement_list' class="movement-name form-control justify-content-lg-left" >
+                              <datalist id='movement_list'>
+                                 {% for movement in movements %} 
+                                    <option value="{{movement.name}}"></option>
+                                 {% endfor %}
+                              </datalist>
                            </div>
                            <div class="col-lg-2 col-md-2 col-sm-2">
-                              <input class="form-control justify-content-left" value="weight" type="number" placeholder="Weight">
+                              <input class="form-control justify-content-left weight" type="number" placeholder="Weight">
                            </div>
+                           <select name="Units" class="col-lg-1 col-md-1 col-sm-1" onchange="updateMovementUnits(this)">
+                              <option value="lbs">lbs.</option>
+                              <option value="kg">kg</option>
+                              <option value="pood">pood</option>
+                           </select>
                            <div class="col-lg-2 col-md-2 col-sm-2">
                               <input class="form-control" value="reps" type="number" placeholder="Reps">
                            </div>   

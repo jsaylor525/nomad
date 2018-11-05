@@ -41,7 +41,8 @@ class WorkoutBuilderFormView(FormView):
 
 def workoutBuilderView(request):
    context = {
-      "workouts":  Workout.objects.all(),  
+      "workouts":  Workout.objects.all(),
+      "movements":  Movement.objects.all(),
    }
    return render(request, "workout/workout_builder.html", context)
 
