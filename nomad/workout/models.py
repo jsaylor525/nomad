@@ -1,13 +1,18 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.gis.measure import Distance
-from measurement.measures import Weight
+from measurement.measures import Mass
 from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
 
-# Create your models here.
+# Extending Mass with kilogram
+NomadMass = Mass
+NomadMass.UNITS['kg'] = 1000.0
+NomadMass.ALIAS['kilogram'] = 'kg'
+NomadMass.SI_UNITS = ['kg']
 
+# Create your models here.
 class Movement(models.Model):
 
    G = "Gymnastics"
@@ -60,8 +65,8 @@ class Equipment(models.Model):
    )
 
    weightType = models.CharField(max_length=32, 
-                                 choices={(v, k) for k,v in Weight.ALIAS.items()}, 
-                                 default=Weight.ALIAS['kilogram'])
+                                 choices={(v, k) for k,v in NomadMass.ALIAS.items()}, 
+                                 default=NomadMass.ALIAS['kilogram'])
 
    weightValue = models.FloatField(default=0.0)
 
