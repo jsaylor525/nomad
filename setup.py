@@ -7,4 +7,7 @@ TODO:
 
 if __name__ == '__main__':
    import os
-   os.system('pip install -r requirements.txt')
+   try:
+      os.system('activate nomad && pip install -r requirements.txt')
+   except:
+      print("You need to install conda to develop nomad. https://www.anaconda.com/")
