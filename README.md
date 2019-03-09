@@ -14,6 +14,11 @@ Right now the project is in the prototyping phase. It is recommended that you us
 * git
 * [Visual Studio Code](https://code.visualstudio.com/)
 
+### Recommendations
+
+- intellij or pycharm
+- mozilla or chrome with developers
+
 ## Setup
 
 I've played with Windows 10, Ubuntu 18.04, and MacOS Mojave at the early stages, likely as this project develops all the OS types listed won't work... We're real developers so expect to use Linux ;)
@@ -25,7 +30,7 @@ Hopefully you read the above and install conda... here's the [cheat-sheet](https
 ```cmd
 conda create -y --name nomad python=3.7
 conda activate nomad
-pip install - requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Website Learning History (Notes)
