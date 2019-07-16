@@ -2,3 +2,7 @@ numpy
 Django>=2.0.11
 measurement
 social-auth-app-django
+social-auth-app-mongoengine
+django-crispy-forms
+whitenoise
+pydocstyle

@@ -22,7 +22,7 @@ I've played with Windows 10, Ubuntu 18.04, and MacOS Mojave at the early stages,
 
 Hopefully you read the above and install conda... here's the [cheat-sheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf)
 
-```cmd
+```bash
 conda create -y --name nomad python=3.7
 conda activate nomad
 pip install - requirements.txt
@@ -33,16 +33,16 @@ pip install - requirements.txt
 Django Setups for initial creation.
 
 1. Create the project.
-   ```
+   ```bash
    django-admin startproject nomad
    ```
 2. change into the created project directory and test that the project was created successfully.
-   ```
+   ```bash
    cd .\nomad\
    python manage.py runserver
    ```
 3. Create a application.
-   ```
+   ```bash
    python .\manage.py startapp clock
    ```
 4. Setup Clock For initial integration.
@@ -52,7 +52,7 @@ Django Setups for initial creation.
       1. Also give the base "" a page to load
 5. Check the server again, fix any issues.
 6. Create database.
-   ```
+   ```bash
    python manage.py migrate
    ```
 # Development Folders/Files

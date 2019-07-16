@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">     
+    <title>Nomad - {% block title %}{% endblock %}</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slate.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <!-- <link rel="stylesheet" href="{% static 'css/darkly.min.css' %}"/> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/darkly.css' %}"/> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% block jsblock %}
+    {% endblock %}
+</head>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <a class="navbar-brand text-danger" href="#">
+        Nomad
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarColor03">
+    <!-- <div class="collapse navbar-collapse" id="navbarResponsive"> -->
+        <ul class="navbar-nav mr-auto">
+
+            
+            {% if user and not user.is_anonymous %}
+                <li class="nav-item">You are signed in as <strong>{{ user.username }}</strong></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'settings' %}">settings</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'password' %}">change password</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+                <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">login</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'signup' %}">signup</a></li>
+            {% endif %}
+            
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Workout
+            </a>
+            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                <a class="dropdown-item" href="{% url 'workouts' %}">All Workouts</a>
+                <a class="dropdown-item" href="{% url 'movements' %}">All Movements</a>
+            <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'workout_builder' %}">Workout Builder</a>
+            </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link disabled" href="{% url 'account' %}">Account</a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link disabled" href="{% url 'clock' %}">Clock</a>
+            </li>
+        </ul>
+
+        <a class="" href="{% url 'login' %}">
+            <img src="{% static 'images/baseline_account_circle_white_48dp.png' %}">
+    </a>
+        
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+</nav>
+<body>
+<!-- <ol class="breadcrumb dark">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active">Data</li>
+</ol> -->
+<div class="container dark">
+    {% block body %}
+    {% endblock %}
+</div>
+</body>
+</html>
+
+<footer>
+    Blank Footer
+</footer>

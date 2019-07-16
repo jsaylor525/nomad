@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Workout Builder
+{% endblock %}
+
+{% block jsblock %}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="workout-container">
+   
+   <h1>Workout Builder</h1>
+   
+   <form method="post">{% csrf_token %}
+      <div class="form-group">
+         <input class="form-control form-control-lg" type="text" placeholder="Workout Name" id="inputLarge">
+      </div>      
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+         <label class="btn btn-outline-info">
+            <input type="radio" name="options" id="for_time" autocomplete="off" checked="">
+            For Time
+         </label>
+         <label class="btn btn-outline-info">
+            <input type="radio" name="options" id="for_reps" autocomplete="off" checked="">
+            For Reps
+         </label>
+         <label class="btn btn-outline-info">
+            <input type="radio" name="options" id="for_weight" autocomplete="off" checked="">
+            For Weight
+         </label>
+      </div>
+
+      <div class="card border-primary mb-3">
+         <div class="card-header">Workout Section (Drag to reorder)</div>
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+         <div class="card-body">
+            
+            <form class="form-inline-group my-2 my-lg-0">
+               <ol id="sortable" class="sortable container movement-list">
+                  <li id="movementEntry0" class="ui-state-default movement-elem container form-group">
+                     <span class="ui-icon ui-icon-arrowthick-2-n-s">
+                        <div class="row justify-content-left">
+                           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-1">
+                              <input type="text" placeholder="Search for Movement" list='movement_list' class="movement-name form-control justify-content-lg-left" >
+                              <datalist id='movement_list'>
+                                 {% for movement in movements %} 
+                                    <option value="{{movement.name}}"></option>
+                                 {% endfor %}
+                              </datalist>
+                           </div>
+                           <div class="col-lg-2 col-md-2 col-sm-2">
+                              <input class="form-control justify-content-left weight" type="number" placeholder="Weight">
+                           </div>
+                           <select name="Units" class="col-lg-1 col-md-1 col-sm-1" onchange="updateMovementUnits(this)">
+                              <option value="lbs">lbs.</option>
+                              <option value="kg">kg</option>
+                              <option value="pood">pood</option>
+                           </select>
+                           <div class="col-lg-2 col-md-2 col-sm-2">
+                              <input class="form-control" value="reps" type="number" placeholder="Reps">
+                           </div>   
+                           <div class="col-lg-2 col-md-2 col-sm-2">
+                              <button type="button" class="btn btn-danger btm-sm remove-movement" onclick="removeMovement(this)">
+                                 Remove
+                              </button>
+                           </div>
+                        </div>
+                     </span>
+                  </li>
+               </ol>
+               <div class="container">               
+                  <div class="row justify-content-left">
+                     <div class="col-lg-12 col-md-12 col-sm-12">
+                        <button type="button" class="btn btn-md btn-success btn-block" id="addAnotherMovement" onclick="addNewMovement()">
+                           Add another movement
+                        </button>
+                     </div>
+                  </div>
+               </div>
+                  
+            </form>
+         </div>
+         <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will start a new section in the same workout." id="add-new-workout-section" onclick="addNewWorkoutSection()">
+               Then
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will repeat the current section">Repeat</button>
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will add a movement(s) at a specific interval">Interrupt</button>
+            <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" data-original-title="This will save your workout as is">Done</button>
+         </div>
+      </div>
+
+      <div class="input-group" id="use-vest">
+         <div class="container">
+            <div class="row justify-content-start no-gutters">
+               <div class="col-3">         
+                  <div class="custom-control custom-checkbox">
+                     <input type="checkbox" class="custom-control-input" id="use_weight_vest">
+                     <label class="custom-control-label" for="use_weight_vest">Should a weight vest be worn?</label>
+                  </div>
+               </div>
+               <div class="col-2 offset">
+                  <input class="form-control inline" type="number" placeholder="Weight">
+               </div>
+               <div class="form-group">
+                  <select class="custom-select">
+                     <option selected="">lbs</option>
+                     <option value="1">kg</option>
+                     <option value="2">pood</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+         
+</div>
+
+{% load static %}
+<script src="{% static 'js/workoutBuilder.js' %}"></script>
+
+{% endblock %}
