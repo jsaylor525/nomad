@@ -3,6 +3,18 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h2>Homepage</h2>
-  <p>Hello {{ user.get_name }}!</p>
+  <div class="jumbotron">
+      <h1 class="display-4">Hello, and welcome to Nomad WOD Tracker!</h1>
+      <p class="lead">This is a website to log and track workouts as well as view fitness progress and create workout routines.</p>
+      <hr class="my-4">
+      
+      {% if not user or user.is_anonymous %}
+        <p>To log workouts please sign-up!</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign Up!</a>
+        <h2>Homepage</h2>
+        <p>Hello {{ user.get_name }}!</p>
+      {% endif %}
+      </p>
+    </div>
 {% endblock %}

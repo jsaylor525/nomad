@@ -33,6 +33,13 @@ def signup(request):
 def home(request):
     return render_to_response('accounts/home.html')
 
+@login_required
+def account(request):
+    return redirect('home')
+
+@login_required
+def logged_out(request):
+    return render(request, 'core/logged_out.html')
 
 # def logout(request):
 #     auth_logout(request)
@@ -82,9 +89,9 @@ def password(request):
             form.save()
             update_session_auth_hash(request, form.user)
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('password')
+            return redirect('core/password')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
         form = PasswordForm(request.user)
-    return render(request, 'core/settings/password.html', {'form': form})
+    return render(request, 'core/password.html', {'form': form})

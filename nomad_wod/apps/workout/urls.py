@@ -10,8 +10,8 @@ arg3: is the url link that can be used in django's template to. ex.
    <a href="{% url '<arg3>' %}">Page Name</a>
 '''
 urlpatterns = [
-    path('clock',           views.clockView,        name='clock'),
-    path('movements',       views.movementsView,    name='movements'),
-    path('workouts',        views.WorkoutListView.as_view(), name='workouts'),
-    path('workout_builder', views.workoutBuilderView, name='workout_builder'),
+    path('clock/',           views.clockView,        name='clock'),
+    path('movements/',       views.movementsView,    name='movements'),
+    path('workouts/',        views.WorkoutListView.as_view(), name='workouts'),
+    path('workout_builder/', views.workoutBuilderView, name='workout_builder'),
 ]

@@ -51,11 +51,5 @@ def workoutBuilderView(request):
    }
    return render(request, "workout/workout_builder.html", context)
 
-def accountView(request):
-   return render(request, "workout/account.html")
-
 def clockView(request):
    return render(request, "workout/clock.html")
-
-def loginView(request):
-   return render(request, "workout/login.html")
