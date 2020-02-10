@@ -1,18 +1,34 @@
 # Nomad Workout Tracker
 
-Are you tired of having to pay for a good a workout tracker? Or maybe you're tired of having to export and import all of your workout data when you switch to a new gym? If so Nomad Workout Tracker is the solution you've been craving. We a delivering an application that will allow the community to track their workouts individual, compare their results with others, and take this platform with them to whatever gym they want.
+Are you tired of having to pay for a good a workout tracker? Or maybe you're tired of having to export and import all of your workout data when you switch to a new gym? If so Nomad Workout Tracker is the solution you've been craving. By delivering an application that will allow the community to track their workouts individually, compare their results with others, and take this platform with them to whatever gym they want.
 
 Users will be able to create there own groups and invite friends to share workout journals.
 
 # Developing
 
-Right now the project is in the prototyping phase. It is recommended that you use Anaconda to contain you python environment so that dependencies don't clash.
+Right now in the prototype phase. The list of items that needs to be done is currently:
+
+* Authentification
+   * Account Creation Form
+   * Account Settings/Configuration Form
+* Clock
+   * All Javascript, eventually this will hook into Workouts to submit times and the workouts will link to this to start a workout.
+* MongoDB hookup
+* Workout form's
+* Workout Model Creation
+* Workout Creator Dashboard
+* User Physique/Skill Dashboard
 
 ## Prerequisites
 
-* [Anaconda](https://conda.io/docs/_downloads/conda-cheatsheet.pdf)
 * git
+   * using [gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+      * `master` branch is the integration branch
+      * `stable` is the latest release
+      * `develop/` are branches for new development
+      * `bugfix/` are branches for bug fixes
 * [Visual Studio Code](https://code.visualstudio.com/)
+   * workspace settings will be stored in this repo.
 
 ### Recommendations
 
@@ -25,12 +41,13 @@ I've played with Windows 10, Ubuntu 18.04, and MacOS Mojave at the early stages,
 
 ### Environment
 
-Hopefully you read the above and install conda... here's the [cheat-sheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf)
+You need to have install `pip` and `venv` to configure the environment.
+The python version should be `3.6.X` or later.
 
 ```cmd
-conda create -y --name nomad python=3.7
-conda activate nomad
-pip install -r requirements.txt
+python -m venv venv
+source venv/bin/activate
+python -m pip install -r developer_requirements.txt
 ```
 
 ### Website Learning History (Notes)

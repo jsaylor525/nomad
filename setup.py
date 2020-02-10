@@ -6,8 +6,13 @@ TODO:
 """
 
 if __name__ == '__main__':
-   import os
-   try:
-      os.system('activate nomad-venv && pip install -r requirements.txt')
-   except:
-      print("You need to install conda to develop nomad. https://www.anaconda.com/")
+    import os
+    import sys
+
+    if len(sys.argv) > 1:
+        if "dev" in sys.argv[1]:
+            os.system('pip install -r developer_requirements.txt')
+        else:
+            raise ValueError(f"Unrecognized input: {sys.argv[1]}")
+    else:
+        os.system('pip install -r requirements.txt')

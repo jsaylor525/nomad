@@ -1,0 +1,16 @@
+{
+  "python.pythonPath": "venv/bin/python",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "100", "--py36"],
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pylintEnabled": true,
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+  },
+}

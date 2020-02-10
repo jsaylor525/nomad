@@ -2,3 +2,5 @@ numpy
 Django>=2.0.11
 measurement
 social-auth-app-django
+pep8
+pylint

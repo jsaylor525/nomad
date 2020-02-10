@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+from django.conf import settings
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -120,11 +121,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-from django.conf import settings
-STATIC_ROOT="../workout/static"
+STATIC_ROOT = "../workout/static"
 
 STATICFILES_DIRS = [
-    
     "workout/static/css",
     "workout/static/images",
     "workout/static/js",
